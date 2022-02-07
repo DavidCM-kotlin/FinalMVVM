@@ -9,4 +9,17 @@
     <string name="menu_home">Pokedex</string>
     <string name="menu_gallery">Favorites</string>
     <string name="menu_slideshow">User settings</string>
+    <string name="_001">#001</string>
+
+    <string name="home_fee">Tasa: %.2f</string>
+    <string name="dialog_eror_title">Error</string>
+    <string name="dialog_error_message">Se ha producido un error</string>
+    <string name="dialog_error_accept">Aceptar</string>
+    <string name="menu_transactions">Transacciones</string>
+    <string name="menu_profile">Perfil</string>
+    <string name="profile_name">Nombre</string>
+    <string name="profile_surname">Apellido</string>
+    <string name="profile_saved_name">Nombre guardado</string>
+    <string name="profile_saved_surname">Apellido guardado</string>
+
 </resources>
