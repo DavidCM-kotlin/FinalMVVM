@@ -52,7 +52,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                 }
 
                 override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-//                    vm.onActionOnItemSwiped(viewHolder.adapterPosition)
+                    vm.onActionOnItemSwiped(viewHolder.adapterPosition)
                 }
             }
             ItemTouchHelper(deleteHelper).attachToRecyclerView(pokemonRV)
@@ -64,7 +64,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
             HomeViewModel.NAV_DETAIL -> {
                 val pokemonModel = navData as PokemonModel
                 findNavController().navigate(
-                    HomeFragmentDirections.actionNavHomeToDetailsFragment(pokemonModel)
+                    HomeFragmentDirections.actionNavHomeToDetailsFragment()
                 )
             }
         }

@@ -31,9 +31,9 @@
         android:name="com.strixapps.finalmvvm.ui.main.details.DetailsFragment"
         android:label="details_fragment"
         tools:layout="@layout/fragment_details" >
-        <argument
-            android:name="pokemonModel"
-            app:argType="com.strixapps.finalmvvm.db.PokemonModel" />
+<!--        <argument-->
+<!--            android:name="pokemonModel"-->
+<!--            app:argType="com.strixapps.finalmvvm.db.PokemonModelDB" />-->
     </fragment>
 
 

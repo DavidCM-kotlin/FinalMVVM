@@ -4,6 +4,7 @@ import com.strixapps.data.database.PokeRepository
 import com.strixapps.data.remote.PokemonRepository
 import com.strixapps.domain.finalmvvm.repository.EditPokemonRepository
 import com.strixapps.domain.finalmvvm.repository.GetPokemonRepository
+import com.strixapps.domain.finalmvvm.usecase.DeletePokemonUseCase
 import org.koin.core.qualifier.qualifier
 import org.koin.dsl.module
 

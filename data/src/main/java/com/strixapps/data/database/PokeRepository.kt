@@ -26,8 +26,9 @@ class PokeRepository(private val context: Context) :
     }
 
     override suspend fun savePokemons(vararg pokemons: PokemonModel) {
-        appDatabase.pokemonDao().savePokemons()
+        appDatabase.pokemonDao().savePokemons(*pokemons.map { it.toDataDB() }.toTypedArray())
     }
+
 
 }
 

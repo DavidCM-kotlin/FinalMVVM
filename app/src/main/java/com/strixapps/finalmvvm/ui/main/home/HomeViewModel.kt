@@ -6,13 +6,15 @@ import com.strixapps.finalmvvm.common.BaseViewModel
 import com.strixapps.finalmvvm.common.NavData
 import com.strixapps.domain.finalmvvm.exception.TransactionExceptions
 import com.strixapps.domain.finalmvvm.model.PokemonModel
+import com.strixapps.domain.finalmvvm.usecase.DeletePokemonUseCase
 import com.strixapps.domain.finalmvvm.usecase.GetSavedPokemonsUseCase
 import com.strixapps.domain.finalmvvm.usecase.UpdatePokemonsUseCase
 import com.strixapps.finalmvvm.ui.dialog.DialogData
 
 class HomeViewModel(
     private val updatePokemonsUseCase: UpdatePokemonsUseCase,
-    private val getSavedPokemonsUseCase: GetSavedPokemonsUseCase) : BaseViewModel() {
+    private val getSavedPokemonsUseCase: GetSavedPokemonsUseCase,
+    private val deletePokemonUseCase:DeletePokemonUseCase) : BaseViewModel() {
 
     companion object {
         const val NAV_DETAIL = 0
@@ -65,11 +67,14 @@ class HomeViewModel(
 
     fun onActionOnItemSwiped(itemPosition: Int) {
         executeUseCase {
-            val transaction = obsListPokemon.value?.get(itemPosition)
-            transaction.also {
-//                deleteSinglePokemonUseCase.execute(it)
+            val pokemon = obsListPokemon.value?.get(itemPosition)
+            pokemon?.also {
+                deletePokemonUseCase.execute(it)
                 liveListPokemons.value = getSavedPokemonsUseCase.execute(Unit)
             }
+
+
         }
     }
+
 }

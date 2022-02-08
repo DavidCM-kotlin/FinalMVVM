@@ -34,9 +34,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         observeData(vmMain.obsShowFab, ::onObserveFab)
         observeData(vmMain.obsNavigate, ::onObserveNav)
 
-//        binding.appBarMain.fab.setOnClickListener {
-//            vm.onActionDownloadClicked()
-//        }
+        binding.appBarMain.fab.setOnClickListener {
+            vm.onActionDownloadClicked()
+        }
 
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView

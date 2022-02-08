@@ -39,7 +39,7 @@ android {
         }
         pro{
             buildConfigField "String", "SERVER_URL", '"https://pokeapi.co/api/v2/"'
-            buildConfigField "String", "DB_NAME", '"room_database"'
+            buildConfigField "String", "DB_NAME", '"new_database"'
             dimension "environment"
         }
     }
