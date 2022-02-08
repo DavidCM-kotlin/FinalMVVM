@@ -38,7 +38,7 @@ class PokemonRepository : GetPokemonRepository {
 //    override suspend fun getPokemons(): Result<List<PokemonModel>>{
 //        return....
 //    }
-
+//adsfasd
 
     override suspend fun getPokemons(): Result<List<PokemonModel>> {
         val listaTontadas7 = listOf(
