@@ -68,9 +68,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
         }
     }
 
-
-
-
     private fun setupBinding() {
         observeData(vm.obsListPokemon, ::onObserveList)
     }

@@ -1,5 +1,6 @@
 package com.strixapps.finalmvvm.ui.main.home
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.strixapps.finalmvvm.common.BaseViewModel
@@ -73,8 +74,18 @@ class HomeViewModel(
             val pokemon = obsListPokemon.value?.get(itemPosition)
             pokemon?.also {
                 deletePokemonUseCase.execute(it)
+                Log.d("ENVIADO", itemPosition.toString())
                 liveListPokemons.value = getSavedPokemonsUseCase.execute(Unit)
             }
         }
     }
+
+    //    fun onActionTransactionClicked() {
+//        navigate(NavData(NAV_TRANSACTION), pokemonmodel)
+//    }
+
+//    fun onActionTransactionClicked() {
+//        navigate(NavData(NAV_DETAILS), pokemonmodel)
+//    }
+
 }

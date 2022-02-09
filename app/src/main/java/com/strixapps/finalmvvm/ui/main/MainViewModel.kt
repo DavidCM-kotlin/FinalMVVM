@@ -11,29 +11,15 @@ class MainViewModel : BaseViewModel() {
     private val liveShowFab = MutableLiveData<Boolean>()
     val obsShowFab = liveShowFab
 
-    fun showFab(show:Boolean){
-        liveShowFab.value = show
-    }
-//
-//    fun navigateBack(){
-//        liveNavigation.value = null
-//    }
-
-    companion object{
-        const val NAV_POKEDEX = 0
-        const val NAV_FAVORITES = 1
-        const val NAV_SETTINGS = 2
-    }
-
     override fun onInitialization() {
     }
 
-//    fun onActionTransactionClicked() {
-//        navigate(NavData(NAV_TRANSACTION), pokemonmodel)
-//    }
+    fun showFab(show:Boolean){
+        liveShowFab.value = show
+    }
 
-    fun onActionProfileClicked() {
-//        navigate(NavData(NAV_PROFILE), pokemonModel)
+    fun navigateBack(){
+        liveNavigation.value = null
     }
 
 }
