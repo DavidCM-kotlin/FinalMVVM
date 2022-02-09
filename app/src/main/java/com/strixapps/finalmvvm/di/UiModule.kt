@@ -1,6 +1,7 @@
 package com.strixapps.finalmvvm.di
 
 import com.strixapps.finalmvvm.ui.main.MainViewModel
+import com.strixapps.finalmvvm.ui.main.details.DetailsViewModel
 import com.strixapps.finalmvvm.ui.main.home.HomeViewModel
 import com.strixapps.finalmvvm.ui.main.userSettings.UserSettingsViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -17,9 +18,9 @@ val uiModule = module {
         MainViewModel()
     }
 
-//    viewModel {
-//      DetailViewModel(get())
-//    }
+    viewModel {
+        DetailsViewModel()
+    }
 
 //    viewModel {
 //        UserSettingsViewModel(get())

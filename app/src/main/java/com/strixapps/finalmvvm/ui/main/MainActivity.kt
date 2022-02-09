@@ -48,8 +48,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-    }
-
 
 //        navView.setNavigationItemSelectedListener {
 //            when (it.itemId) {
@@ -60,9 +58,13 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
 //            true
 //        }
 
+    }
+
+
+
+
     private fun onObserveNav(navData: NavData?) {
         navData?.also {
-
         }?:also {
             if(!findNavController(R.id.nav_view).navigateUp())
                 finish()

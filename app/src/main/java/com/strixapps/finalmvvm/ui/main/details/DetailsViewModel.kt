@@ -1,13 +1,26 @@
 package com.strixapps.finalmvvm.ui.main.details
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import com.strixapps.domain.finalmvvm.model.PokemonModel
+import com.strixapps.finalmvvm.common.BaseViewModel
+import com.strixapps.finalmvvm.ui.main.MainViewModel
 
-class DetailsViewModel : ViewModel() {
+class DetailsViewModel : BaseViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is Favorites Fragment"
+    private val liveTransaction = MutableLiveData<PokemonModel>()
+    val obsPokemon = liveTransaction
+
+    fun onAttachTransaction(pokemon: PokemonModel) {
+        liveTransaction.value = pokemon
+        mainViewModel.showFab(false)
     }
-    val text: LiveData<String> = _text
+
+    override fun onInitialization() {
+    }
+
+    override fun onCleared() {
+        mainViewModel.showFab(true)
+        super.onCleared()
+    }
+
 }

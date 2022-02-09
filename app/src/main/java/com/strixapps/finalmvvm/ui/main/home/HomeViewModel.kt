@@ -21,6 +21,7 @@ class HomeViewModel(
     }
 
     private val liveListPokemons: MutableLiveData<List<PokemonModel>> = MutableLiveData()
+    // AÑADIDA PARA EL INICIO
     val obsListPokemon: LiveData<List<PokemonModel>> = liveListPokemons
 
     override fun onInitialization() {
@@ -39,6 +40,7 @@ class HomeViewModel(
             result.onSuccess {
                 liveListPokemons.value = it
                 liveShowMessage.value = "Data go from remote successfully."
+                liveListPokemons.value = getSavedPokemonsUseCase.execute(Unit)
             }.onFailure {
                 handleUpdateException(it)
             }
@@ -62,8 +64,9 @@ class HomeViewModel(
     }
 
     fun onActionTransactionClicked(pokemonModel: PokemonModel) {
-        navigate(NavData(NAV_DETAIL), pokemonModel)
+        navigate(NavData(NAV_DETAIL, pokemonModel))
     }
+
 
     fun onActionOnItemSwiped(itemPosition: Int) {
         executeUseCase {
@@ -72,9 +75,6 @@ class HomeViewModel(
                 deletePokemonUseCase.execute(it)
                 liveListPokemons.value = getSavedPokemonsUseCase.execute(Unit)
             }
-
-
         }
     }
-
 }

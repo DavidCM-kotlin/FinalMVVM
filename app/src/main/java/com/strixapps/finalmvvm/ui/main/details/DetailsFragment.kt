@@ -1,45 +1,38 @@
 package com.strixapps.finalmvvm.ui.main.details
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.lifecycle.Observer
+import androidx.navigation.fragment.navArgs
+import com.strixapps.domain.finalmvvm.model.PokemonModel
 import com.strixapps.finalmvvm.common.BaseFragment
 import com.strixapps.finalmvvm.databinding.FragmentDetailsBinding
-import com.strixapps.finalmvvm.databinding.FragmentHomeBinding
-import com.strixapps.finalmvvm.ui.main.home.HomeViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class DetailsFragment : Fragment() {
+class DetailsFragment : BaseFragment<FragmentDetailsBinding, DetailsViewModel>() {
 
-    private lateinit var detailsViewModel: DetailsViewModel
-    private var _binding: FragmentDetailsBinding? = null
+    override val vm: DetailsViewModel by viewModel()
 
-    private val binding get() = _binding!!
+    val args: DetailsFragmentArgs by navArgs()
 
-    override fun onCreateView(
+    override fun provideBinding(
         inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        detailsViewModel =
-            ViewModelProvider(this).get(detailsViewModel::class.java)
-
-        _binding = FragmentDetailsBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
-        val textView: TextView = binding.textDetails
-        detailsViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
-        return root
+        container: ViewGroup?
+    ): FragmentDetailsBinding {
+        return FragmentDetailsBinding.inflate(inflater,container,false)
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val pokemon = args.pokemon
+        vm.onAttachTransaction(pokemon)
+        observeData(vm.obsPokemon,::onObservePokemon)
+    }
+
+    private fun onObservePokemon(pokemonModel: PokemonModel) {
+        binding.textDetails.text = pokemonModel.id.toString()
+        binding.textDetails2.text = pokemonModel.name
+        binding.textDetails3.text = pokemonModel.base_experience.toString()
     }
 }

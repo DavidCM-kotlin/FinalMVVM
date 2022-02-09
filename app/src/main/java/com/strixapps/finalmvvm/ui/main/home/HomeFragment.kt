@@ -12,6 +12,7 @@ import com.strixapps.finalmvvm.common.BaseFragment
 import com.strixapps.finalmvvm.common.NavData
 import com.strixapps.finalmvvm.databinding.FragmentHomeBinding
 import com.strixapps.domain.finalmvvm.model.PokemonModel
+import com.strixapps.finalmvvm.R
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
@@ -50,7 +51,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                 ): Boolean {
                     return true
                 }
-
                 override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                     vm.onActionOnItemSwiped(viewHolder.adapterPosition)
                 }
@@ -60,15 +60,16 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     }
 
     override fun onNavigate(navData: NavData) {
-        when (navData.id) {
-            HomeViewModel.NAV_DETAIL -> {
-                val pokemonModel = navData as PokemonModel
-                findNavController().navigate(
-                    HomeFragmentDirections.actionNavHomeToDetailsFragment()
-                )
+        when(navData.id){
+            HomeViewModel.NAV_DETAIL ->{
+                val pokemon = navData.data as PokemonModel
+                findNavController().navigate(HomeFragmentDirections.actionNavHomeToDetailsFragment(pokemon))
             }
         }
     }
+
+
+
 
     private fun setupBinding() {
         observeData(vm.obsListPokemon, ::onObserveList)

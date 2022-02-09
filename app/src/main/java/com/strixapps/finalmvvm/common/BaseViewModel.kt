@@ -49,7 +49,7 @@ abstract class BaseViewModel : ViewModel() {
         liveShowDialog.value = DialogData(show = false)
     }
 
-    protected fun navigate(navData: NavData, pokemonModel: PokemonModel){
+    protected fun navigate(navData: NavData){
         liveNavigation.value = navData
     }
 

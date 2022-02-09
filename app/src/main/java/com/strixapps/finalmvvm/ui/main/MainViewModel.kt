@@ -28,9 +28,9 @@ class MainViewModel : BaseViewModel() {
     override fun onInitialization() {
     }
 
-    fun onActionTransactionClicked() {
+//    fun onActionTransactionClicked() {
 //        navigate(NavData(NAV_TRANSACTION), pokemonmodel)
-    }
+//    }
 
     fun onActionProfileClicked() {
 //        navigate(NavData(NAV_PROFILE), pokemonModel)

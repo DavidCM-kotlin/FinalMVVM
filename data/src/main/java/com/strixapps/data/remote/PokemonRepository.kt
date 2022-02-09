@@ -2,7 +2,9 @@ package com.strixapps.data.remote
 
 import android.util.Log
 import android.widget.Toast
+import com.strixapps.data.database.PokemonModelDB
 import com.strixapps.data.database.toDataDB
+import com.strixapps.data.database.toDomain
 import com.strixapps.domain.finalmvvm.exception.TransactionExceptions
 import com.strixapps.domain.finalmvvm.model.PokemonModel
 import com.strixapps.domain.finalmvvm.repository.GetPokemonRepository
@@ -38,10 +40,9 @@ class PokemonRepository : GetPokemonRepository {
 //    override suspend fun getPokemons(): Result<List<PokemonModel>>{
 //        return....
 //    }
-//adsfasd
 
     override suspend fun getPokemons(): Result<List<PokemonModel>> {
-        val listaTontadas7 = listOf(
+        val listaTontadas1 = listOf(
             PokemonModel(
                 1,
                 "bulbasaur",
@@ -49,8 +50,8 @@ class PokemonRepository : GetPokemonRepository {
                 "342.8",
                 "342.8",
                 "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
-                "ground",
-                "ghost",
+                "grass",
+                "poison",
                 "60",
                 "50",
                 "40",
@@ -59,7 +60,11 @@ class PokemonRepository : GetPokemonRepository {
                 "10"
             )
         )
-        val listaTontadas8 = listOf(
+//            .map{
+//            it.toDomain()
+//        }
+
+        val listaTontadas2 = listOf(
             PokemonModel(
                 4,
                 "charmander",
@@ -77,7 +82,7 @@ class PokemonRepository : GetPokemonRepository {
                 "10"
             )
         )
-        val listaTontadas9 = listOf(
+        val listaTontadas3 = listOf(
             PokemonModel(
                 6,
                 "charizard",
@@ -95,7 +100,7 @@ class PokemonRepository : GetPokemonRepository {
                 "10"
             )
         )
-        val listaTontadas10 = listOf(
+        val listaTontadas4 = listOf(
             PokemonModel(
                 7,
                 "squirtle",
@@ -113,7 +118,7 @@ class PokemonRepository : GetPokemonRepository {
                 "10"
             )
         )
-        val listaTontadas11 = listOf(
+        val listaTontadas5 = listOf(
             PokemonModel(
                 12,
                 "butterfree",
@@ -131,7 +136,7 @@ class PokemonRepository : GetPokemonRepository {
                 "10"
             )
         )
-        val listaTontadas12 = listOf(
+        val listaTontadas6 = listOf(
             PokemonModel(
                 25,
                 "pikachu",
@@ -149,7 +154,7 @@ class PokemonRepository : GetPokemonRepository {
                 "10"
             )
         )
-        val listaTontadas13 = listOf(
+        val listaTontadas7 = listOf(
             PokemonModel(
                 29,
                 "nidoran-f",
@@ -167,7 +172,7 @@ class PokemonRepository : GetPokemonRepository {
                 "10"
             )
         )
-        val listaTontadas14 = listOf(
+        val listaTontadas8 = listOf(
             PokemonModel(
                 35,
                 "clefairy",
@@ -185,7 +190,7 @@ class PokemonRepository : GetPokemonRepository {
                 "10"
             )
         )
-        val listaTontadas15 = listOf(
+        val listaTontadas9 = listOf(
             PokemonModel(
                 112,
                 "rhydon",
@@ -203,7 +208,7 @@ class PokemonRepository : GetPokemonRepository {
                 "10"
             )
         )
-        val listaTontadas16 = listOf(
+        val listaTontadas10 = listOf(
             PokemonModel(
                 144,
                 "articuno",
@@ -221,7 +226,7 @@ class PokemonRepository : GetPokemonRepository {
                 "10"
             )
         )
-        val listaTontadas17 = listOf(
+        val listaTontadas11 = listOf(
             PokemonModel(
                 233,
                 "porygon2",
@@ -239,7 +244,7 @@ class PokemonRepository : GetPokemonRepository {
                 "10"
             )
         )
-        val listaTontadas18 = listOf(
+        val listaTontadas12 = listOf(
             PokemonModel(
                 456,
                 "finneon",
@@ -257,7 +262,7 @@ class PokemonRepository : GetPokemonRepository {
                 "10"
             )
         )
-        val listaTontadas19 = listOf(
+        val listaTontadas13 = listOf(
             PokemonModel(
                 623,
                 "golurk",
@@ -277,11 +282,25 @@ class PokemonRepository : GetPokemonRepository {
         )
 
 //      rhydon, ground, rock
-        listaTontadas15.map {
+        listaTontadas9.map {
             it.toDataDB()
         }
 
-        val listOfList = listOf(listaTontadas7, listaTontadas8, listaTontadas9, listaTontadas10,listaTontadas11,listaTontadas12,listaTontadas13,listaTontadas14,listaTontadas15,listaTontadas16,listaTontadas17, listaTontadas18,listaTontadas19)
+        val listOfList = listOf(
+            listaTontadas1,
+            listaTontadas2,
+            listaTontadas3,
+            listaTontadas4,
+            listaTontadas5,
+            listaTontadas6,
+            listaTontadas7,
+            listaTontadas8,
+            listaTontadas9,
+            listaTontadas10,
+            listaTontadas11,
+            listaTontadas12,
+            listaTontadas13)
+
         return Result.success(listOfList.random())
 
 //        return Result.success(listaTontadas17)
