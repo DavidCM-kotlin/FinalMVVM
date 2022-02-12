@@ -1,7 +1,10 @@
 package com.strixapps.data.remote
 
+import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 import com.strixapps.domain.finalmvvm.model.PokemonModel
+import com.strixapps.finalmvvm.Utils.cutType1
+import com.strixapps.finalmvvm.Utils.cutType2
 
 data class SingleRemotePokemon (
     @SerializedName("base_experience") val base_experience : Int,
@@ -31,7 +34,7 @@ data class Stats (
 
 data class Type (
     @SerializedName("name") val name : String,
-    @SerializedName("url") val url : String
+//    @SerializedName("url") val url : String
 )
 
 data class Types (
@@ -41,19 +44,29 @@ data class Types (
 
 fun SingleRemotePokemon.toDomain():PokemonModel {
     return PokemonModel(
-        id = id,
-        name = name,
-        base_experience = base_experience.toString(),
-        height = height.toString(),
-        weight = weight.toString(),
-        sprites = sprites.front_default,
-        type1 = types[0].type.name,
-        type2 = types[1].type.name,
-        hp = stats[0].base_stat.toString(),
-        attack = stats[1].base_stat.toString(),
-        defense = stats[2].base_stat.toString(),
-        special_attack = stats[3].base_stat.toString(),
-        special_defense = stats[4].base_stat.toString(),
-        speed = stats[4].base_stat.toString()
+        id,
+        name,
+        base_experience.toString(),
+        height.toString(),
+        weight.toString(),
+        sprites.front_default,
+        getTypes(types).cutType1().trim(),
+        getTypes(types).cutType2().trim()
+//        stats[1].base_stat.toString(),
+//        stats[2].base_stat.toString(),
+//        stats[3].base_stat.toString(),
+//        stats[4].base_stat.toString(),
+//        stats[4].base_stat.toString()
     )
 }
+
+fun getTypes(types: List<Types>):String{
+    var jointypes = ""
+    for((i, _) in types.withIndex()){
+        jointypes += "${types[i].type.name.uppercase()} \n"
+    }
+    return jointypes
+}
+
+
+

@@ -33,6 +33,6 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding, DetailsViewModel>()
     private fun onObservePokemon(pokemonModel: PokemonModel) {
         binding.textDetails.text = pokemonModel.id.toString()
         binding.textDetails2.text = pokemonModel.name
-        binding.textDetails3.text = pokemonModel.base_experience.toString()
+//        binding.textDetails3.text = pokemonModel.base_experience.toString()
     }
 }

@@ -16,6 +16,7 @@
         android:background="@drawable/back_item"
         android:backgroundTint="@color/mySecondary"
         android:backgroundTintMode="multiply"
+        android:contextClickable="true"
         android:clickable="true"
         android:elevation="10dp"
         android:focusable="true"
@@ -23,7 +24,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:foreground="?android:attr/selectableItemBackground">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -76,43 +78,27 @@
                 app:layout_constraintStart_toEndOf="@id/imageView"
                 app:layout_constraintTop_toTopOf="@id/guideline1"/>
 
-
-
-            <com.google.android.material.chip.Chip
+            <TextView
                 android:id="@+id/chip_type1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/back_item_tint"
-                android:checkable="false"
-                android:clickable="false"
-                android:drawableTintMode="src_in"
                 android:text="Grass"
-                app:selectionRequired="false"
-                app:singleSelection="false"
-                android:focusable="false"
-
                 android:textColor="@color/white"
                 android:textSize="12sp"
-                app:chipBackgroundColor="@color/mySecondary"
-                app:chipCornerRadius="15sp"
                 app:layout_constraintStart_toStartOf="@id/tvName"
                 app:layout_constraintTop_toBottomOf="@id/tvName"
                 app:layout_constraintBottom_toBottomOf="@id/imageView"/>
 
-            <com.google.android.material.chip.Chip
+            <TextView
                 android:id="@+id/chip_type2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:background="@drawable/back_item_tint"
-                android:checkable="false"
-                android:clickable="false"
-                android:drawableTintMode="src_in"
                 android:text="Rock"
                 android:textColor="@color/white"
                 android:textSize="12sp"
-                app:chipBackgroundColor="@color/mySecondary"
-                app:chipCornerRadius="15sp"
                 app:layout_constraintStart_toEndOf="@id/chip_type1"
                 app:layout_constraintTop_toBottomOf="@id/tvName"
                 app:layout_constraintBottom_toBottomOf="@id/imageView"/>

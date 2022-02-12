@@ -3,6 +3,8 @@ package com.strixapps.finalmvvm.ui.main.home
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
+import androidx.navigation.fragment.findNavController
 import com.strixapps.finalmvvm.common.BaseViewModel
 import com.strixapps.finalmvvm.common.NavData
 import com.strixapps.domain.finalmvvm.exception.TransactionExceptions
@@ -18,7 +20,7 @@ class HomeViewModel(
     private val deletePokemonUseCase:DeletePokemonUseCase) : BaseViewModel() {
 
     companion object {
-        const val NAV_DETAIL = 0
+        const val NAV_DETAIL =4
     }
 
     private val liveListPokemons: MutableLiveData<List<PokemonModel>> = MutableLiveData()
@@ -64,9 +66,16 @@ class HomeViewModel(
         }
     }
 
+//    fun onActionTransactionClicked(pokemonModel: PokemonModel) {
+//        Log.d("NAVEGA", pokemonModel.toString())
+//        navigate(NavData(NAV_DETAIL, pokemonModel))
+//    }
+
     fun onActionTransactionClicked(pokemonModel: PokemonModel) {
+
         navigate(NavData(NAV_DETAIL, pokemonModel))
     }
+
 
 
     fun onActionOnItemSwiped(itemPosition: Int) {
@@ -74,7 +83,7 @@ class HomeViewModel(
             val pokemon = obsListPokemon.value?.get(itemPosition)
             pokemon?.also {
                 deletePokemonUseCase.execute(it)
-                Log.d("ENVIADO", itemPosition.toString())
+                Log.d("Eliminado:", itemPosition.toString())
                 liveListPokemons.value = getSavedPokemonsUseCase.execute(Unit)
             }
         }

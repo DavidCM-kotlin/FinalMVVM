@@ -49,6 +49,7 @@ abstract class BaseFragment<T: ViewBinding,VM:BaseViewModel> : Fragment() {
         observeData(vm.obsNavigate,::onObserveNavigation)
     }
 
+
     protected open fun onNavigate(navData:NavData){}
 
     protected open fun onObserveNavigation(navData: NavData?) {

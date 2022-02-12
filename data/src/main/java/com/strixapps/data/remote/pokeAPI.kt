@@ -16,6 +16,9 @@ interface pokeAPI {
     suspend fun getPokemonList(): Response <PokemonListRemote>
 //    fun getPokemonList() : Flow<List<PokemonListRemote>>
 
+    @GET("pokemon/{id}")
+    suspend fun getPokemons(@Path("id") id:String): Response<SingleRemotePokemon>
+
 }
 
 
